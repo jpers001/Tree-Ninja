@@ -32,16 +32,16 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate()
     {
 
-        float move = Input.GetAxis("Horizontal");
-
         float h = Input.GetAxis("Horizontal");
 
+        rb2d.velocity = new Vector2(h * maxSpeed, rb2d.velocity.y);
+        /*
         if (h * rb2d.velocity.x < maxSpeed)
             rb2d.AddForce(Vector2.right * h * moveForce);
 
         if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
             rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
-
+        */
         if (h > 0 && !facingRight)
             Flip();
         else if (h < 0 && facingRight)
